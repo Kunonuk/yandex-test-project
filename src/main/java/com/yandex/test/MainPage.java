@@ -19,8 +19,8 @@ public class MainPage {
     }
 
     public void logout() {
-        $(userMenu).click();
         $(confirmRegion).click();
+        $(userMenu).click();
         $(logoutButton).click();
     }
 }
