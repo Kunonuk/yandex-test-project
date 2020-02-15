@@ -13,10 +13,10 @@ public class MainPage {
     private SelenideElement userMenu = $(By.xpath("//div[@class='header2-nav i-bem header2-nav_js_inited']"));
     private SelenideElement logoutButton = $(By.xpath("//li[@class='header2-user-menu__item']"));
     private SelenideElement computerButton = $(By.xpath("(//div[@class='_35SYuInI1T _1vnugfYUli'])[4]"));
-    private SelenideElement laptopButton = $(By.xpath("//a[text()='Ноутбуки']"));
+    private SelenideElement laptopButton = $(By.xpath("(//a[@class='_2qvOOvezty _2x2zBaVN-3 _9qbcyI_fyS'])[2]"));
 
     public static MainPage open() {
-        Selenide.open("https://market.yandex.ru/");
+        Selenide.open("/");
         return new MainPage();
     }
 
@@ -33,7 +33,7 @@ public class MainPage {
     }
 
     public MainPage laptop() {
-        $(logoutButton).click();
+        $(laptopButton).click();
         return new Laptop();
     }
 

@@ -13,7 +13,7 @@ public class LoginPage {
     private SelenideElement loginButton = $(By.xpath("//div[@class='passp-button passp-sign-in-button']"));
 
     public static LoginPage open() {
-        Selenide.open("https://passport.yandex.ru/auth?origin=market_desktop_header&retpath=https://market.yandex.ru/");
+        Selenide.open("/");
         return new LoginPage();
     }
 
