@@ -19,11 +19,10 @@ public class ProductSearch {
     }
 
     @Test
-    public void productSearchByFilter() {
+    public void productSearchByFilter() throws InterruptedException {
         Laptop.open()
                 .filterPanelSearch()
                 .getNameProduct()
                 .getPriceProduct();
-
     }
 }

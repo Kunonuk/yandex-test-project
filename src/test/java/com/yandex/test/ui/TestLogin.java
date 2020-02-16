@@ -11,10 +11,11 @@ public class TestLogin {
     @Before
     public void setUp() throws Exception {
         Configuration.baseUrl = "https://passport.yandex.ru/auth?origin=market_desktop_header&retpath=https://market.yandex.ru";
+        Configuration.holdBrowserOpen = true;
     }
 
     @Test
-    public void userCanLoginWithValidCredentional() {
+    public void userCanLoginWithValidCredentional() throws InterruptedException {
         LoginPage.open()
                 .loginAs("UserForTestJava", "UserForTestJava1");
     }
