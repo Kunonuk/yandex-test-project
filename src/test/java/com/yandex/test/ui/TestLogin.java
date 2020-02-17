@@ -9,7 +9,7 @@ import org.junit.Test;
 public class TestLogin {
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         Configuration.baseUrl = "https://passport.yandex.ru/auth?origin=market_desktop_header&retpath=https://market.yandex.ru";
         Configuration.holdBrowserOpen = true;
     }

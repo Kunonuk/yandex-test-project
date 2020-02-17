@@ -9,7 +9,7 @@ import org.junit.Test;
 public class ProductSearch {
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         Configuration.baseUrl = "https://market.yandex.ru";
         Configuration.holdBrowserOpen = true;
 
