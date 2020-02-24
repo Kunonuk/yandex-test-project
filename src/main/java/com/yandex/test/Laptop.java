@@ -6,13 +6,14 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class Laptop extends MainPage {
+    String price;
 
-    private SelenideElement blackColorButton = $(By.xpath("(//label[@class='_1V4a1pT7KH'])[1]"));
-    private SelenideElement whiteColorButton = $(By.xpath("(//label[@class='_1V4a1pT7KH'])[4]"));
+    private SelenideElement blackColorButton = $(By.xpath("//span[text()='Цвет черный']/.."));
+    private SelenideElement whiteColorButton = $(By.xpath("//span[text()='Цвет белый']/.."));
     private SelenideElement priceFromButton = $(By.xpath("//input[@id='glpricefrom']"));
-    private SelenideElement hpManufacturerButton = $(By.xpath("(//div[@class='LhMupC0dLR'])[6]"));
-    private SelenideElement lenovoManufacturerButton = $(By.xpath("(//div[@class='LhMupC0dLR'])[8]"));
-    private SelenideElement priceButton = $(By.xpath("(//a[@class='link link_theme_major n-filter-sorter__link i-bem link_js_inited'])[2]"));
+    private SelenideElement hpManufacturerButton = $(By.xpath("//span[text()='HP']/.."));
+    private SelenideElement lenovoManufacturerButton = $(By.xpath("//span[text()='Lenovo']/.."));
+    private SelenideElement priceButton = $(By.xpath("//a[text()='по цене']"));
     private SelenideElement priceLaptop = $(By.xpath("//div[@class='n-snippet-card2__main-price-wrapper'][1]"));
     private SelenideElement nameLaptop = $(By.xpath("(//h3[@class='n-snippet-card2__title'])[1]"));
 
@@ -27,7 +28,6 @@ public class Laptop extends MainPage {
         $(lenovoManufacturerButton).click();
         $(blackColorButton).click();
         $(whiteColorButton).click();
-        $(priceButton).click();
         return this;
     }
 
@@ -39,8 +39,21 @@ public class Laptop extends MainPage {
     }
 
     public Laptop getPriceProduct() {
-        String price = $(priceLaptop).getText();
+        price = $(priceLaptop).getText();
         System.out.println(price + " рублей");
+        return this;
+    }
+
+    public Laptop filterPriceButtonMinMax() {
+        $(priceButton).click();
+        return this;
+    }
+
+    public Laptop valueCompositionMinMaxPriceLaptop() {
+        int value = Integer.parseInt(price);
+        int value1 = Integer.parseInt(price);
+        int valuMaxMin = value - value1;
+        System.out.println(valuMaxMin);
         return this;
     }
 }

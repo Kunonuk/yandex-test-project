@@ -6,6 +6,8 @@ import com.yandex.test.MainPage;
 import org.junit.Before;
 import org.junit.Test;
 
+import static com.codeborne.selenide.Selenide.$;
+
 public class ProductSearch {
 
     @Before
@@ -22,7 +24,12 @@ public class ProductSearch {
     public void productSearchByFilter() throws InterruptedException {
         Laptop.open()
                 .filterPanelSearch()
+                .filterPriceButtonMinMax()
                 .getNameProduct()
-                .getPriceProduct();
+                .getPriceProduct()
+                .filterPriceButtonMinMax()
+                .getNameProduct()
+                .getPriceProduct()
+                .valueCompositionMinMaxPriceLaptop();
     }
 }
