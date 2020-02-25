@@ -40,7 +40,8 @@ public class Laptop extends MainPage {
 
     public Laptop getPriceProduct() {
         price = $(priceLaptop).getText();
-        System.out.println(price + " рублей");
+        String replacePrice = price.replace("₽", "");
+        System.out.println(replacePrice + "рублей");
         return this;
     }
 
@@ -49,11 +50,11 @@ public class Laptop extends MainPage {
         return this;
     }
 
-    public Laptop valueCompositionMinMaxPriceLaptop() {
+    /*public Laptop valueCompositionMinMaxPriceLaptop() {
         int value = Integer.parseInt(price);
         int value1 = Integer.parseInt(price);
         int valuMaxMin = value - value1;
         System.out.println(valuMaxMin);
         return this;
-    }
+    }*/
 }
