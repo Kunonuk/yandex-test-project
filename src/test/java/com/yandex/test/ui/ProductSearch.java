@@ -29,7 +29,8 @@ public class ProductSearch {
                 .getPriceProduct()
                 .filterPriceButtonMinMax()
                 .getNameProduct()
-                .getPriceProduct();
-                //.valueCompositionMinMaxPriceLaptop();
+                .getPriceProduct()
+                .valueCompositionMinMaxPriceLaptop();
     }
+
 }

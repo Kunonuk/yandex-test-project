@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class Laptop extends MainPage {
-    String price;
 
     private SelenideElement blackColorButton = $(By.xpath("//span[text()='Цвет черный']/.."));
     private SelenideElement whiteColorButton = $(By.xpath("//span[text()='Цвет белый']/.."));
@@ -16,6 +15,8 @@ public class Laptop extends MainPage {
     private SelenideElement priceButton = $(By.xpath("//a[text()='по цене']"));
     private SelenideElement priceLaptop = $(By.xpath("//div[@class='n-snippet-card2__main-price-wrapper'][1]"));
     private SelenideElement nameLaptop = $(By.xpath("(//h3[@class='n-snippet-card2__title'])[1]"));
+
+    private int i = 0;
 
     public static Laptop open() {
         return new Laptop();
@@ -39,9 +40,10 @@ public class Laptop extends MainPage {
     }
 
     public Laptop getPriceProduct() {
-        price = $(priceLaptop).getText();
-        String replacePrice = price.replace("₽", "");
-        System.out.println(replacePrice + "рублей");
+        String price = $(priceLaptop).getText();
+        price = price.replaceAll("\\D", "");
+        i = Integer.parseInt(price.trim());
+        System.out.println(i + " рублей");
         return this;
     }
 
@@ -50,11 +52,11 @@ public class Laptop extends MainPage {
         return this;
     }
 
-    /*public Laptop valueCompositionMinMaxPriceLaptop() {
-        int value = Integer.parseInt(price);
-        int value1 = Integer.parseInt(price);
-        int valuMaxMin = value - value1;
-        System.out.println(valuMaxMin);
-        return this;
-    }*/
+    public void valueCompositionMinMaxPriceLaptop() {
+        int a = 0;
+        int b = 0;
+        i = a;
+        if (a < 0) i = b;
+        System.out.println(b - a);
+    }
 }
