@@ -6,7 +6,6 @@ import com.yandex.test.MainPage;
 import org.junit.Before;
 import org.junit.Test;
 
-import static com.codeborne.selenide.Selenide.$;
 
 public class ProductSearch {
 
@@ -30,7 +29,8 @@ public class ProductSearch {
                 .filterPriceButtonMinMax()
                 .getNameProduct()
                 .getPriceProduct()
-                .valueCompositionMinMaxPriceLaptop();
+                .valueCompositionMinMaxPriceLaptop()
+                .listLaptop();
     }
-
 }
+
