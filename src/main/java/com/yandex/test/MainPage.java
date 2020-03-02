@@ -8,12 +8,12 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class MainPage {
 
-    private SelenideElement confirmRegion = $(By.xpath("//div[@class='n-region-notification__actions-cell'][1]"));
+    private SelenideElement confirmRegion = $(By.xpath("//div[span[contains(@class, 'region-notification__ok')]]"));
     private SelenideElement loginButton = $(By.xpath("//div[@class='header2-nav i-bem header2-nav_js_inited']"));
-    private SelenideElement userMenu = $(By.xpath("//div[@class='header2-nav i-bem header2-nav_js_inited']"));
-    private SelenideElement logoutButton = $(By.xpath("//li[@class='header2-user-menu__item']"));
-    private SelenideElement computerButton = $(By.xpath("(//div[@class='_35SYuInI1T _1vnugfYUli'])[4]"));
-    private SelenideElement laptopButton = $(By.xpath("(//a[@class='_2qvOOvezty _2x2zBaVN-3 _9qbcyI_fyS'])[2]"));
+    private SelenideElement userMenu = $(By.xpath("//div[div[contains(@class, 'user-placeholder')]]"));
+    private SelenideElement logoutButton = $(By.xpath("//a[contains(@class, 'logout')]"));
+    private SelenideElement computerButton = $(By.xpath("//span[text()='Компьютеры']"));
+    private SelenideElement laptopButton = $(By.xpath("//a[text()='Ноутбуки']"));
 
     public static MainPage open() {
         Selenide.open("/");
@@ -21,7 +21,7 @@ public class MainPage {
     }
 
     public void logout() {
-        $(confirmRegion).click();
+        //$(confirmRegion).click();
         $(userMenu).click();
         $(logoutButton).click();
     }
