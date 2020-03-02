@@ -1,12 +1,15 @@
 package com.yandex.test;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class Laptop extends MainPage {
 
@@ -18,6 +21,9 @@ public class Laptop extends MainPage {
     private SelenideElement priceButton = $(By.xpath("//a[text()='по цене']"));
     private SelenideElement priceLaptop = $(By.xpath("//div[@class='n-snippet-card2__main-price-wrapper'][1]"));
     private SelenideElement nameLaptop = $(By.xpath("(//h3[@class='n-snippet-card2__title'])[1]"));
+    private SelenideElement openLaptopList = $(By.xpath("//a[@class='button button_size_m button_theme_pseudo i-bem button_js_inited']"));
+
+    private ElementsCollection collectionNameLaptops = $$(By.xpath("(//h3[@class='n-snippet-card2__title'])"));
 
     private int parseIntForValueComposition = 0;
     private int minPriceLaptop = 0;
@@ -68,11 +74,31 @@ public class Laptop extends MainPage {
         return this;
     }
 
-    public void listLaptop() {
-        ArrayList<SelenideElement> lists = new ArrayList<>();
-        for(SelenideElement list : lists){
-            lists.add(list);
-            System.out.println(list);
+    /*
+    Add laptops for collection
+    */
+    public Laptop listLaptop() {
+        ArrayList<String> list = new ArrayList<>();
+        for(SelenideElement element : collectionNameLaptops){
+            String laptops = element.getText();
+            list.add(laptops);
         }
+        Collections.sort(list);
+
+        for (int i = 0; i < list.size(); i++){
+            System.out.println(list.get(i));
+        }
+
+        System.out.println(list.size() + " элементов коллекции");
+        return this;
+    }
+
+    public Laptop clickOpenCollection() {
+
+        for(int i = 0; i < 10; i++ ){
+            openLaptopList.click();
+        }
+
+        return this;
     }
 }

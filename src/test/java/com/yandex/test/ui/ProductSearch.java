@@ -30,6 +30,7 @@ public class ProductSearch {
                 .getNameProduct()
                 .getPriceProduct()
                 .valueCompositionMinMaxPriceLaptop()
+                .clickOpenCollection()
                 .listLaptop();
     }
 }
