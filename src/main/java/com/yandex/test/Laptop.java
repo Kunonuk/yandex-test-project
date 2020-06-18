@@ -3,10 +3,11 @@ package com.yandex.test;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -21,9 +22,10 @@ public class Laptop extends MainPage {
     private SelenideElement priceButton = $(By.xpath("//a[text()='по цене']"));
     private SelenideElement priceLaptop = $(By.xpath("//div[@class='n-snippet-card2__main-price-wrapper'][1]"));
     private SelenideElement nameLaptop = $(By.xpath("(//h3[@class='n-snippet-card2__title'])[1]"));
-    private SelenideElement openLaptopList = $(By.xpath("//a[@class='button button_size_m button_theme_pseudo i-bem button_js_inited']"));
+    private SelenideElement openLaptopList = $(By.xpath("//a[@class='button button_size_s button_theme_pseudo n-pager__button-next i-bem n-smart-link button_js_inited n-smart-link_js_inited']"));
 
     private ElementsCollection collectionNameLaptops = $$(By.xpath("(//h3[@class='n-snippet-card2__title'])"));
+    private ElementsCollection collectionPriceLaptops = $$(By.xpath("//div[@class = 'price']"));
 
     private int parseIntForValueComposition = 0;
     private int minPriceLaptop = 0;
@@ -77,11 +79,11 @@ public class Laptop extends MainPage {
     /*
     Add laptops for collection
     */
-    public Laptop listLaptop() {
+    public Laptop listCollectionLaptopArray() {
         ArrayList<String> list = new ArrayList<>();
-        for(SelenideElement element : collectionNameLaptops){
-            String laptops = element.getText();
-            list.add(laptops);
+        for (SelenideElement element : collectionNameLaptops) {
+            String nameLaptops = element.getText();
+            list.add(nameLaptops);
         }
         Collections.sort(list);
 
@@ -93,12 +95,20 @@ public class Laptop extends MainPage {
         return this;
     }
 
-    public Laptop clickOpenCollection() {
+    public Laptop listCollectionLaptopMap() {
 
-        for(int i = 0; i < 10; i++ ){
-            openLaptopList.click();
+        HashMap<ElementsCollection, ElementsCollection> map = new HashMap<>();
+        map.put(collectionNameLaptops, collectionPriceLaptops);
+
+        for(Map.Entry<ElementsCollection, ElementsCollection> entry: map.entrySet()){
+
+            System.out.println(entry.getKey() + " " + entry.getValue());
         }
-
         return this;
     }
+
+    /*public Laptop clickOpenCollection() {
+        openLaptopList.click();
+        return this;
+    }*/
 }
