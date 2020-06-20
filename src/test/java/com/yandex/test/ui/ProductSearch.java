@@ -31,8 +31,8 @@ public class ProductSearch {
                 .getPriceProduct()
                 .valueCompositionMinMaxPriceLaptop()
                 //.clickOpenCollection()
-                .listCollectionLaptopArray()
-                .listCollectionLaptopMap();
+                .listCollectionLaptopArray();
+                //.listCollectionLaptopMap();
     }
 }
 
