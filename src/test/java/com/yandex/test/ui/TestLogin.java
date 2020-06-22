@@ -13,9 +13,9 @@ public class TestLogin {
 
     @Before
     public void setUp() {
+        Configuration.browser = "com.yandex.config.ConfigCapability";
         Configuration.baseUrl = "https://passport.yandex.ru/auth?origin=market_desktop_header&retpath=https://market.yandex.ru";
         Configuration.holdBrowserOpen = true;
-        WebDriverRunner.setWebDriver(ConfigCapability.getChromeOptions());
 
     }
 

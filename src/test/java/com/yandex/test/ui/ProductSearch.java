@@ -13,7 +13,6 @@ public class ProductSearch {
 
     @Before
     public void setUp() {
-        WebDriverRunner.setWebDriver(ConfigCapability.getChromeOptions());
         Configuration.baseUrl = "https://market.yandex.ru";
         Configuration.holdBrowserOpen = true;
 

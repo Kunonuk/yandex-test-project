@@ -12,8 +12,13 @@ public class ConfigCapability implements WebDriverProvider {
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
         WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
 
-        desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, getChromeOptions());
+        options.addArguments("disable-infobars");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
 
         try {
             return new ChromeDriver(desiredCapabilities);
@@ -23,15 +28,5 @@ public class ConfigCapability implements WebDriverProvider {
         }
     }
 
-    public static WebDriver getChromeOptions() {
-        ChromeOptions options = new ChromeOptions();
-
-        options.addArguments("disable-infobars");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--disable-extensions");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-
-        return new ChromeDriver(options);
-    }
 }
+
