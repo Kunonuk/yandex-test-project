@@ -1,6 +1,8 @@
 package com.yandex.test.ui;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
+import com.yandex.config.ConfigCapability;
 import com.yandex.test.Laptop;
 import com.yandex.test.MainPage;
 import org.junit.Before;
@@ -11,6 +13,7 @@ public class ProductSearch {
 
     @Before
     public void setUp() {
+        WebDriverRunner.setWebDriver(ConfigCapability.getChromeOptions());
         Configuration.baseUrl = "https://market.yandex.ru";
         Configuration.holdBrowserOpen = true;
 
